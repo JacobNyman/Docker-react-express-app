@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "client": "npm start --prefix ../practice-app",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../practice-app && npm run build --prefix ../practice-app"
   },
   "presets": [
     "@babel/preset-env"
@@ -15,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "moment": "^2.27.0",

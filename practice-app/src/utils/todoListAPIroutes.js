@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAllTodoLists = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/todos/allTodoLists");
+    const res = await axios.get("/todos/allTodoLists");
 
     return res.data;
   } catch (error) {
@@ -12,7 +12,7 @@ export const getAllTodoLists = async () => {
 
 export const postNewTodoList = async (title) => {
   try {
-    await axios.post("http://localhost:5000/todos/todolist", {
+    await axios.post("/todos/todolist", {
       title,
     });
   } catch (error) {
@@ -22,21 +22,19 @@ export const postNewTodoList = async (title) => {
 
 export const deleteTodo = async (todoListId, todoId) => {
   try {
-    await axios.delete(
-      `http://localhost:5000/todos/deletetodo/${todoListId}/${todoId}`
-    );
+    await axios.delete(`/todos/deletetodo/${todoListId}/${todoId}`);
   } catch (error) {}
 };
 
 export const deleteTodoList = async (todoListId) => {
   try {
-    await axios.delete(`http://localhost:5000/todos/deleteList/${todoListId}`);
+    await axios.delete(`/todos/deleteList/${todoListId}`);
   } catch (error) {}
 };
 
 export const postNewTodo = async (listId, text) => {
   try {
-    await axios.post(`http://localhost:5000/todos/postTodo/${listId}`, {
+    await axios.post(`/todos/postTodo/${listId}`, {
       text,
     });
   } catch (error) {
@@ -46,7 +44,7 @@ export const postNewTodo = async (listId, text) => {
 
 export const updateTodos = async (todoListId, todos) => {
   try {
-    await axios.put(`http://localhost:5000/todos/updateTodos/${todoListId}`, {
+    await axios.put(`/todos/updateTodos/${todoListId}`, {
       todos,
     });
   } catch (error) {
