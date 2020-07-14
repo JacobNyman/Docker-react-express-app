@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  client:
+    build: ./practice-app
+    ports:
+      - 3000:3000
+    volumes:
+      - ./practice-app:/usr/src/frontend-app
+      - node_modules:/usr/src/frontend-app/node_modules
+
+  server:
+    build: ./express-backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./express-backend:/usr/src/backend-app
+      - node_modules:/usr/src/backend-app/node_modules

@@ -6,4 +6,4 @@ COPY package.json /usr/src/backend-app
 
 RUN npm install
 
-CMD ["npm", "start"]
+CMD ["npm", "dev"]
