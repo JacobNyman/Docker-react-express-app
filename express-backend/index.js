@@ -16,12 +16,15 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => res.send("Hello World"));
-
+console.log(
+  path.resolve(__dirname, "..", "practice-app", "build", "index.html")
+);
 mongoose
   .connect(
-    process.env.NODE_ENV === "production"
-      ? dbconfig.mongoURIProd
-      : dbconfig.mongoURI,
+    // process.env.NODE_ENV === "production"
+    //   ? dbconfig.mongoURIProd
+    //   : dbconfig.mongoURI,
+    dbconfig.mongoURIProd,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
