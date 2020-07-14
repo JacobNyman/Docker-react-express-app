@@ -6,5 +6,6 @@ WORKDIR /usr/src/frontend-app
 COPY package.json /usr/src/frontend-app
 
 RUN npm install
+COPY . /usr/src/frontend-app
+EXPOSE 3000
 
-CMD ["npm", "start"]

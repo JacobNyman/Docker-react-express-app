@@ -20,9 +20,6 @@ export const types = {
   UPDATE_TODO_LOCAL: "UPDATE_TODO_LOCAL",
 };
 
-// TODO: Success need index while Request needs ._id
-// so change argurments from success to request
-
 // Get todo lists
 export const getTodoLists = () => ({
   type: types.GET_TODOLISTS_REQUEST,

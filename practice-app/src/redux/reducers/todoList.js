@@ -4,6 +4,7 @@ const initialState = {
   todoLists: [],
   isLoading: false,
   errorMessage: "",
+  noContentOnServer: false,
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +19,7 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         todoLists: action.payload,
+        noContent: action.payload.length === 0 ? true : false,
       };
     case types.GET_TODOLISTS_FAILURE:
       return {

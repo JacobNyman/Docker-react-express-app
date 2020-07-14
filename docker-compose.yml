@@ -3,16 +3,30 @@ version: "3"
 services:
   client:
     build: ./practice-app
+    command: npm run start
     ports:
       - 3000:3000
     volumes:
       - ./practice-app:/usr/src/frontend-app
       - node_modules:/usr/src/frontend-app/node_modules
 
+    tty: true
   server:
     build: ./express-backend
+    command: npm run dev
     ports:
       - 5000:5000
     volumes:
       - ./express-backend:/usr/src/backend-app
-      - node_modules:/usr/src/backend-app/node_modules
+      - node_modules_b:/usr/src/backend-app/node_modules
+
+  mongo:
+    image: mongo
+    volumes:
+      - data:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  node_modules:
+  node_modules_b:
+  data:

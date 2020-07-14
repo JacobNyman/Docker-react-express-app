@@ -32,6 +32,7 @@ const StartScreen = ({
   dispatchGetTodoLists,
   reduxTodoLists,
   reduxIsLoading,
+  reduxNoContent,
   dispatchPostTodo,
   dispatchPostTodoList,
   dispatchUpdateTodos,
@@ -42,10 +43,10 @@ const StartScreen = ({
   const [listName, setListName] = useState("");
 
   useEffect(() => {
-    if (reduxTodoLists.length === 0) {
+    if (!reduxNoContent) {
       dispatchGetTodoLists();
     }
-  }, [dispatchGetTodoLists, reduxTodoLists]);
+  }, [dispatchGetTodoLists, reduxNoContent]);
 
   const addTodo = useCallback(
     async (todoListId, todoListIndex) => {
@@ -182,9 +183,10 @@ const mapDispatchToProps = {
   dispatchUpdateTodos: updateTodosAction,
 };
 
-const mapStateToProps = ({ todoLists, isLoading }) => ({
+const mapStateToProps = ({ todoLists, isLoading, noContent }) => ({
   reduxTodoLists: todoLists,
   reduxIsLoading: isLoading,
+  reduxNoContent: noContent,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

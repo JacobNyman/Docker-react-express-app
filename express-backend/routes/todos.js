@@ -21,6 +21,7 @@ router.post("/todolist", async (req, res) => {
 router.get("/allTodoLists", async (req, res) => {
   try {
     const allLists = await todolist.find({});
+
     return res.status(200).json(allLists);
   } catch (error) {
     return res.status(400).json({ msg: error });
