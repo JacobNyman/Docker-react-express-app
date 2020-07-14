@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
 
   app.get("*", (req, res) => {
     res.sendFile(
-      path.resolve(__dirname, "practice-app", "build", "index.html")
+      path.resolve(__dirname, "..", "practice-app", "build", "index.html")
     );
   });
 }
